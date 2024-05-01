@@ -1,57 +1,93 @@
-# 🚀 Getting started with Strapi
 
-Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/dev-docs/cli) (CLI) which lets you scaffold and manage your project in seconds.
+# Ayna Backend Assignment
 
-### `develop`
+[Workin Demo](https://youtu.be/iBTTOBocI7I)
 
-Start your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-develop)
+This repo achives the backend functionality asked by the organisation. The functionality was to create a echo websocket API using Strapi.
 
-```
-npm run develop
-# or
-yarn develop
-```
 
-### `start`
+## Run Locally
 
-Start your Strapi application with autoReload disabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-start)
+Clone the project
 
-```
-npm run start
-# or
-yarn start
+```bash
+  git clone https://github.com/Aayush0606/Strapi-WebSocket
 ```
 
-### `build`
+Go to the project directory
 
-Build your admin panel. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-build)
-
-```
-npm run build
-# or
-yarn build
+```bash
+  cd directory-name
 ```
 
-## ⚙️ Deployment
+Install dependencies
 
-Strapi gives you many possible deployment options for your project including [Strapi Cloud](https://cloud.strapi.io). Browse the [deployment section of the documentation](https://docs.strapi.io/dev-docs/deployment) to find the best solution for your use case.
+```bash
+  npm install
+```
 
-## 📚 Learn more
+Add .env and popu;ate it with values
 
-- [Resource center](https://strapi.io/resource-center) - Strapi resource center.
-- [Strapi documentation](https://docs.strapi.io) - Official Strapi documentation.
-- [Strapi tutorials](https://strapi.io/tutorials) - List of tutorials made by the core team and the community.
-- [Strapi blog](https://strapi.io/blog) - Official Strapi blog containing articles made by the Strapi team and the community.
-- [Changelog](https://strapi.io/changelog) - Find out about the Strapi product updates, new features and general improvements.
+```bash
+  cp .env.example .env || copy .env.example .env
+```
 
-Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/strapi). Your feedback and contributions are welcome!
+Start the server
 
-## ✨ Community
+```bash
+  npm run develop
+```
 
-- [Discord](https://discord.strapi.io) - Come chat with the Strapi community including the core team.
-- [Forum](https://forum.strapi.io/) - Place to discuss, ask questions and find answers, show your Strapi project and get feedback or just talk with other Community members.
-- [Awesome Strapi](https://github.com/strapi/awesome-strapi) - A curated list of awesome things related to Strapi.
 
----
+## API Reference
 
-<sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
+#### Register user
+
+```http
+  POST http://localhost:1337/api/auth/local/register
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `email` | `string` | **Required**. Your email |
+| `username` | `string` | **Required**. Your username |
+| `password` | `string` | **Required**. Your password |
+
+
+#### Login user
+
+```http
+  POST http://localhost:1337/api/auth/local
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `identifier`      | `string` | **Required**. user email |
+| `password`      | `string` | **Required**. user password |
+
+
+
+#### User message
+
+```http
+  GET http://localhost:1337/api/messages/
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `bearer token`      | `string` | **Required**. user jwt token |
+
+ Returns all user message
+
+
+#### Socket
+
+#### connection:  
+```http
+  ws://localhost:1337
+```
+#### message:  
+```http
+  ws://localhost:1337
+  event:/message
+```
