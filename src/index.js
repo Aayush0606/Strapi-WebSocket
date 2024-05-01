@@ -39,7 +39,7 @@ module.exports = {
           });
           socket.emit("message",msg);
         })
-        socket.emit("connectio_success","Connection Successfull, start sending message!!");
+        socket.emit("connectio_success",`Connection Successfull for user ${userId}, start sending message!!`);
       } catch (error) {
         socket.emit("connectio_error","Auth failed, try again!!");
         socket.disconnect(true);
