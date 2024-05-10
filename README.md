@@ -3,8 +3,6 @@
 
 [Workin Demo](https://youtu.be/iBTTOBocI7I)
 
-[Test Endpoints](https://hoppscotch.io/)
-
 This repo achives the backend functionality asked by the organisation. The functionality was to create a echo websocket API using Strapi.
 
 
